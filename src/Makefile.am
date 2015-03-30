@@ -27,6 +27,9 @@ libvmod_timers_la_SOURCES = \
 	vcc_if.h \
 	vmod_timers.c
 
+# Needed to stop concurrent builds from failing
+vmod_timers.lo: vcc_if.h
+
 vcc_if.c vcc_if.h: $(SRC)/lib/libvmod_std/vmod.py $(top_srcdir)/$(DIR_PREFIX)src/vmod_timers.vcc
 	@PYTHON@ $(SRC)/lib/libvmod_std/vmod.py $(top_srcdir)/$(DIR_PREFIX)src/vmod_timers.vcc
 
